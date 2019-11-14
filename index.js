@@ -3,6 +3,7 @@ const app = express();
 const parser = require("body-parser")
 const Characters = require("./lib/models/Characters")
 const Films = require("./lib/models/Films")
+const Starships = require("./lib/models/Starships")
 
 app.use(parser.json());
 
@@ -21,6 +22,13 @@ app.get("/Films", function (req, res) {
     // res.redirect("/Characters")
     Films.find({}).then(Films => {
         res.json(Films);
+    })
+});
+
+app.get("/Starships", function (req, res) {
+    // res.redirect("/Characters")
+    Starships.find({}).then(Starships => {
+        res.json(Starships);
     })
 });
 
