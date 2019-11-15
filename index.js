@@ -1,9 +1,13 @@
 const express = require("express");
 const app = express();
+const cors = require('cors')
 const parser = require("body-parser")
 const Characters = require("./lib/models/Characters")
 const Films = require("./lib/models/Films")
 const Starships = require("./lib/models/Starships")
+
+ 
+app.use(cors())
 
 app.use(parser.json());
 
