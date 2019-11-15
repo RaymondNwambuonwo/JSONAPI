@@ -22,6 +22,49 @@ app.get("/Characters", function (req, res) {
     })
 });
 
+app.get("/Characters/name/:name", function (req, res) {
+    // res.redirect("/Characters")
+    Characters.find({name: req.params.name}).then(Character => {
+        res.json(Character);
+    })
+});
+
+app.get("/Characters/id/:id", function (req, res) {
+    // res.redirect("/Characters")
+    Characters.find({_id: req.params.id}).then(Character => {
+        res.json(Character);
+    })
+});
+
+app.put("/Characters/name/:name", function (req, res) {
+    // res.redirect("/Characters")
+    Characters.findOne({name: req.params.name}, {$set: req.body}).then(Character => {
+        res.json(Character);
+    })
+});
+
+app.post("/Characters", function (req, res) {
+    // res.redirect("/Characters")
+    Characters.create(req.body).then(Character => {
+        res.json(Character);
+    })
+});
+
+app.delete("/Characters/name/:name", function (req, res) {
+    // res.redirect("/Characters")
+    Characters.deleteOne({name: req.params.name}).then(Character => {
+        res.json(Character);
+    })
+});
+
+app.delete("/Characters/id/:id", function (req, res) {
+    // res.redirect("/Characters")
+    Characters.deleteOne({_id: req.params.id}).then(Character => {
+        res.json(Character);
+    })
+});
+
+
 app.get("/Films", function (req, res) {
     // res.redirect("/Characters")
     Films.find({}).then(Films => {
