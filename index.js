@@ -5,6 +5,7 @@ const parser = require("body-parser")
 const Characters = require("./lib/models/Characters")
 const Films = require("./lib/models/Films")
 const Starships = require("./lib/models/Starships")
+const Characters2 = require("./lib/models/Characters2")
 
  
 app.use(cors())
@@ -15,51 +16,51 @@ app.get("/", function(req, res) {
     res.send("Get homepage")
 })
 
-app.get("/Characters", function (req, res) {
+app.get("/Characters2", function (req, res) {
     // res.redirect("/Characters")
-    Characters.find({}).then(Characters => {
+    Characters2.find({}).then(Characters => {
         res.json(Characters);
     })
 });
 
-app.get("/Characters/name/:name", function (req, res) {
+app.get("/Characters2/name/:name", function (req, res) {
     // res.redirect("/Characters")
-    Characters.find({name: req.params.name}).then(Character => {
+    Characters2.find({name: req.params.name}).then(Character => {
         res.json(Character);
     })
 });
 
-app.get("/Characters/id/:id", function (req, res) {
+app.get("/Characters2/id/:id", function (req, res) {
     // res.redirect("/Characters")
-    Characters.find({_id: req.params.id}).then(Character => {
+    Characters2.find({_id: req.params.id}).then(Character => {
         res.json(Character);
     })
 });
 
-app.put("/Characters/name/:name", function (req, res) {
+app.put("/Characters2/name/:name", function (req, res) {
     // res.redirect("/Characters")
-    Characters.findOne({name: req.params.name}, {$set: req.body}).then(Character => {
+    Characters2.findOne({name: req.params.name}, {$set: req.body}).then(Character => {
         res.json(Character);
     })
 });
 
-app.post("/Characters", function (req, res) {
+app.post("/Characters2", function (req, res) {
     // res.redirect("/Characters")
-    Characters.create(req.body).then(Character => {
+    Characters2.create(req.body).then(Character => {
         res.json(Character);
     })
 });
 
-app.delete("/Characters/name/:name", function (req, res) {
+app.delete("/Characters2/name/:name", function (req, res) {
     // res.redirect("/Characters")
-    Characters.deleteOne({name: req.params.name}).then(Character => {
+    Characters2.deleteOne({name: req.params.name}).then(Character => {
         res.json(Character);
     })
 });
 
-app.delete("/Characters/id/:id", function (req, res) {
+app.delete("/Characters2/id/:id", function (req, res) {
     // res.redirect("/Characters")
-    Characters.deleteOne({_id: req.params.id}).then(Character => {
+    Characters2.deleteOne({_id: req.params.id}).then(Character => {
         res.json(Character);
     })
 });
@@ -79,7 +80,7 @@ app.get("/Starships", function (req, res) {
     })
 });
 
-app.set("port", process.env.PORT || 3000);
+app.set("port", process.env.PORT || 3001);
 
 app.listen(app.get("port"), () => {
   console.log(`✅ PORT: ${app.get("port")} 🌟`);
