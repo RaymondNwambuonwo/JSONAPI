@@ -39,7 +39,14 @@ app.get("/Characters2/id/:id", function (req, res) {
 
 app.put("/Characters2/name/:name", function (req, res) {
     // res.redirect("/Characters")
-    Characters2.findOne({name: req.params.name}, {$set: req.body}).then(Character => {
+    Characters2.findOneAndUpdate({name: req.params.name}, {$set: req.body}).then(Character => {
+        res.json(Character);
+    })
+});
+
+app.put("/Characters2/id/:id", function (req, res) {
+    // res.redirect("/Characters")
+    Characters2.findOneAndUpdate({_id: req.params.id}, {$set: req.body}).then(Character => {
         res.json(Character);
     })
 });
