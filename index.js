@@ -67,7 +67,7 @@ app.delete("/Characters2/name/:name", function (req, res) {
 
 app.delete("/Characters2/id/:id", function (req, res) {
     // res.redirect("/Characters")
-    Characters2.findByIdAndDelete({_id: req.params.id}).then(Character => {
+    Characters2.findOneAndDelete({_id: req.params.id}).then(Character => {
         res.json(Character);
     })
 });
