@@ -60,14 +60,14 @@ app.post("/Characters2", function (req, res) {
 
 app.delete("/Characters2/name/:name", function (req, res) {
     // res.redirect("/Characters")
-    Characters2.deleteOne({name: req.params.name}).then(Character => {
+    Characters2.findOneAndDelete({name: req.params.name}).then(Character => {
         res.json(Character);
     })
 });
 
 app.delete("/Characters2/id/:id", function (req, res) {
     // res.redirect("/Characters")
-    Characters2.deleteOne({_id: req.params.id}).then(Character => {
+    Characters2.findByIdAndDelete({_id: req.params.id}).then(Character => {
         res.json(Character);
     })
 });
