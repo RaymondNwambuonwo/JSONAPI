@@ -25,14 +25,14 @@ app.get("/Characters2", function (req, res) {
 
 app.get("/Characters2/name/:name", function (req, res) {
     // res.redirect("/Characters")
-    Characters2.find({name: req.params.name}).then(Character => {
+    Characters2.findOne({name: req.params.name}).then(Character => {
         res.json(Character);
     })
 });
 
 app.get("/Characters2/id/:id", function (req, res) {
     // res.redirect("/Characters")
-    Characters2.find({_id: req.params.id}).then(Character => {
+    Characters2.findOne({_id: req.params.id}).then(Character => {
         res.json(Character);
     })
 });
