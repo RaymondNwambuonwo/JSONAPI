@@ -25,7 +25,7 @@ To further understand, I have some roadmaps listed below. A roadmap is basically
 
 Please see below on how to navigate the API!
 
-Route : https://raymond-api.herokuapp.com/characters 
+Route : https://raymond-api.herokuapp.com/characters2 
 Description: Following this route will return data for all of the characters in films.
 
 Route:  https://raymond-api.herokuapp.com/films 
